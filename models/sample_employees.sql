@@ -1,7 +1,7 @@
 {{
     config(materialized = 'table',
            database = 'dbt',
-           schema = 'dev')
+           schema = 'stg')
 }}
 
 select * from dbt.hr.employees

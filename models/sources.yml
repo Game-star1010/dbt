@@ -7,3 +7,9 @@ sources:
     
     tables: 
      - name: src_employees
+     - name: src_departments
+     - name: src_countries
+     - name: src_salary
+     - name: src_locations
+     - name: src_regions
+     - name: src_jobs
