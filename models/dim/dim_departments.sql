@@ -14,7 +14,7 @@ DEPARTMENT_NAME,
 MANAGER_ID,
 LOCATION_ID,
 LOAD_TIME
-from {{ ref('src_departments')}}
+from {{ ref('stg_departments')}}
 
 {% if is_incremental %}
 

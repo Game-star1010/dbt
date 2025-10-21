@@ -2,10 +2,10 @@
     config(
         materialized='incremental',
         unique_key = 'location_id',
-        incremental_statergy = 'delete+insert'
+        incremental_statergy = 'delete+insert',
         database = 'dev',
-        schema = 'dim'
-        tags = ['stg']
+        schema = 'dim',
+        tags = ['dim']
     )
 }}
 select
@@ -16,7 +16,7 @@ CITY,
 STATE_PROVINCE,
 COUNTRY_ID,
 LOAD_TIME
-from {{ ref 'stg_locations'}}
+from {{ ref('stg_locations')}} as src
 
 {% if is_incremental %}
 

@@ -5,13 +5,13 @@
         incremental_statergy = 'delete+insert',
         schema = 'dim',
         tags = ['dim']
-    )
+          )
 }}
 select
 REGION_ID,
 REGION_NAME,
 LOAD_TIME
-from {{ ref('src_regions')}}
+from {{ ref('stg_regions') }} as src
 
 {% if is_incremental %}
 
