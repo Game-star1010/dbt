@@ -1,0 +1,23 @@
+{{
+    config(
+        materialized='incremental',
+        unique_key = 'DEPARTMENT_ID',
+        incremental_statergy = 'delete+insert',
+        database = 'dev',
+        schema = 'dim'
+    )
+}}
+
+select 
+DEPARTMENT_ID,
+DEPARTMENT_NAME,
+MANAGER_ID,
+LOCATION_ID,
+LOAD_TIME
+from {{ ref('src_departments')}}
+
+{% if is_incremental %}
+
+inc()
+
+{% endif %}
