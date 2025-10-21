@@ -11,5 +11,5 @@ DEPARTMENT_ID,
 DEPARTMENT_NAME,
 MANAGER_ID,
 LOCATION_ID,
-LOAD_TIME
+current_timestamp as LOAD_TIME
 from {{ source('hr','src_departments')}}

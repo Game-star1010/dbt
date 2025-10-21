@@ -18,5 +18,5 @@ SALARY,
 COMISSION_PCT,
 MANAGER_ID,
 DEPARTMENT_ID,
-LOAD_TIME
+current_timestamp as LOAD_TIME
 from {{source('hr','src_employees')}} as src
