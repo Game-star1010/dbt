@@ -13,11 +13,12 @@ JOB_ID,
 JOB_TITLE,
 MIN_SALARY,
 MAX_SALARY,
-LOAD_TIME
-from {{ ref('stg_jobs')}}
+current_timestamp as LOAD_TIME
+from {{ ref('stg_jobs')}} as src
 
 {% if is_incremental %}
 
-inc()
+{{ incr() }}
 
 {% endif %}
+

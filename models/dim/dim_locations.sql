@@ -4,8 +4,8 @@
         unique_key = 'location_id',
         incremental_statergy = 'delete+insert',
         database = 'dev',
-        schema = 'dim',
-        tags = ['dim']
+        schema = 'DIM',
+        tags = ['DIM']
     )
 }}
 select
@@ -15,11 +15,11 @@ POSTAL_CODE,
 CITY,
 STATE_PROVINCE,
 COUNTRY_ID,
-LOAD_TIME
+current_timestamp as LOAD_TIME
 from {{ ref('stg_locations')}} as src
 
 {% if is_incremental %}
 
-inc()
+{{ incr() }}
 
 {% endif %}

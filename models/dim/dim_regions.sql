@@ -10,11 +10,12 @@
 select
 REGION_ID,
 REGION_NAME,
-LOAD_TIME
+current_timestamp as LOAD_TIME
 from {{ ref('stg_regions') }} as src
 
 {% if is_incremental %}
 
-inc()
+{{ incr() }}
 
 {% endif %}
+

@@ -4,6 +4,7 @@
         unique_key = 'employee_id',
         incremental_statergy = 'delete+insert',
         tags = ['DIM'],
+        database = 'dev',
         schema = 'dim'
     )
 }}
@@ -25,7 +26,7 @@ from {{ref('stg_employees')}} as src
 
 {% if is_incremental() %}
 
-where load_time > (select coalesce(max(load_time),'1900-01-01') from {{ this}})
-
+--where load_time > (select coalesce(max(load_time),'1900-01-01') from {{ this}})
+{{ incr() }}
 
 {% endif %}

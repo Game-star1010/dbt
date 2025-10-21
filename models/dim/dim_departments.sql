@@ -4,7 +4,8 @@
         unique_key = 'DEPARTMENT_ID',
         incremental_statergy = 'delete+insert',
         database = 'dev',
-        schema = 'dim'
+        schema = 'dim',
+        tags = ['DIM']
     )
 }}
 
@@ -13,11 +14,12 @@ DEPARTMENT_ID,
 DEPARTMENT_NAME,
 MANAGER_ID,
 LOCATION_ID,
-LOAD_TIME
-from {{ ref('stg_departments')}}
+current_timestamp as LOAD_TIME
+from {{ ref('stg_departments')}} as src
 
 {% if is_incremental %}
 
-inc()
+{{ incr() }}
 
 {% endif %}
+
