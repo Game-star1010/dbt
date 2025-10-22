@@ -40,4 +40,9 @@ models:
     stg:
       + database : dev
       + schema  : stg
-  
+    dim:
+      + database : dev
+      + schema : dim
+    fct:
+      +database : dev
+      + schema : fct

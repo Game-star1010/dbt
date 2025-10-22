@@ -1,7 +1,7 @@
 {{ 
     config(
         materialized = 'table',
-        tags = ['DIM']
+        tags = ['STG']
     )
 }}
 
@@ -9,5 +9,5 @@ select
     COUNTRY_ID,
     COUNTRY_NAME,
     REGION_ID,
-    LOAD_TIME
-from {{ source('hr','src_departments')}}
+    current_timestamp as LOAD_TIME
+from {{ source('hr','src_countries')}}
