@@ -1,0 +1,30 @@
+version: 2
+
+models:
+ 
+  - name: stg_employees
+    description: Staging table for employees
+    columns: 
+      - name: employee_id
+        tests:
+          - not_null
+          - unique
+  
+# DIM model
+
+  - name: dim_regions
+    description: Dimention table for region
+    columns: 
+      - name: region_id
+        tests:
+          - not_null
+          - unique
+
+# FCT table
+  - name: fct_salary
+    description: fact table for salary information
+    columns:
+      - name: employee_id
+        tests:
+          - not_null
+          - unique
