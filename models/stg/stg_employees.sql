@@ -2,7 +2,8 @@
     config(
         materialized='table',
         database = 'dev',
-        schema = 'stg'
+        schema = 'stg',
+        tags = ['STG']
     )
 }}
 
