@@ -34,7 +34,7 @@ sources:
           tests:
               - not_null
               - unique
-
+     - name: src_countries
      
      - name: src_salary
        loaded_at_field: load_time
