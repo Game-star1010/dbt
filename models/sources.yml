@@ -35,20 +35,7 @@ sources:
               - not_null
               - unique
 
-     - name: src_countries
-       loaded_at_field: load_time
-       freshness:
-        warn_after:
-          count: 12
-          period: hour
-        error_after:
-          count: 24
-          period: hour
-       columns:
-        - name: country _id
-          tests:
-              - not_null
-              - unique
+     
      - name: src_salary
        loaded_at_field: load_time
        freshness:
